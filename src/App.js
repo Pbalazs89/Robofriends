@@ -1,34 +1,32 @@
-import React from 'react';
-import Card from './Card';
+import React, { Component } from 'react';
+import CardList from './CardList';
+import SearchBox from './SearchBox';
+import { robots } from './robots';
 
+class App extends Component {
+    constructor() {
+        super()
 
-const App = ({ robots }) => {
+            this.state = {
+                robots: robots,
+                searchfield: ''
+            }
+    }
     
-    return (
+    
+    render() {
+        return (
 
-        <div>
-        {
+        <div className='tc'>
+            <h1>Robofriends</h1>
+            <SearchBox />
+            <CardList robots={robots} />
+            </div>
 
-        robots.map((user, i) => {
-        
-            return (
-            <Card 
-            key={i} 
-            id={robots[i].id} 
-            name={robots[i].name} 
-            email={robots[i].email} 
-            />
         );
-                                 })
-        } 
-        
-        </div>
-
-
-
-    );
-
+    }
 }
 
-
+            
+            
 export default App;
